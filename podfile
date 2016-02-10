@@ -1,0 +1,6 @@
+use_frameworks!
+target ‘TwitterApplication’ do
+  pod "AFNetworking"
+  pod “BDBOAuth1Manager”
+  pod “DateTools”
+end
