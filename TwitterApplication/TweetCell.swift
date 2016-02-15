@@ -18,6 +18,8 @@ class TweetCell: UITableViewCell {
     @IBOutlet weak var profilepictureImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var atnameLabel: UILabel!
+    @IBOutlet weak var likecountLabel: UILabel!
+    @IBOutlet weak var retweetcountLabel: UILabel!
     
     
     var retweet = false
@@ -26,7 +28,10 @@ class TweetCell: UITableViewCell {
     var tweet: Tweet! {
     
         didSet {
-            
+            retweetcountLabel.text = String(tweet.retweetCount!)
+            likecountLabel.text = String(tweet.likeCount!)
+            retweet = tweet.isRetweet!
+            like = tweet.isLike!
             nameLabel.text = tweet.user!.name
             timeLabel.text = tweet.createdAt!.shortTimeAgoSinceNow()
             postLabel.text = tweet.text
@@ -38,6 +43,9 @@ class TweetCell: UITableViewCell {
                 likeButton.setImage(tintedImage, forState: .Normal)
                 likeButton.tintColor = UIColor.redColor()
             } else if (tweet.isLike == false) {
+                let origImage = UIImage(named: "iconmonstr-favorite-2-240")
+                let tintedImage = origImage?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
+                likeButton.setImage(tintedImage, forState: .Normal)
                 likeButton.tintColor = UIColor.grayColor()
             }
             if(tweet.isRetweet == true) {
@@ -46,6 +54,9 @@ class TweetCell: UITableViewCell {
                 retweetButton.setImage(tintedImage, forState: .Normal)
                 retweetButton.tintColor = UIColor.greenColor()
             } else if (tweet.isRetweet == false) {
+                let origImage = UIImage(named: "iconmonstr-retweet-1-240")
+                let tintedImage = origImage?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
+                retweetButton.setImage(tintedImage, forState: .Normal)
                 retweetButton.tintColor = UIColor.grayColor()
             }
             

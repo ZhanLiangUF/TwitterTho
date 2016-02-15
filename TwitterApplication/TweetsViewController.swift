@@ -58,14 +58,37 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         User.currentUser?.logout()
         
     }
-    /*
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+   // In a storyboard-based application, you will often
+   // want to do a little preparation before navigation
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
+        if(segue.identifier == "detailSegue"){
+            print("detailSegue")
+            let cell = sender as! UITableViewCell
+            let indexPath = tableView.indexPathForCell(cell)
+            let tweet = tweets![indexPath!.row]
+            let detailViewController = segue.destinationViewController as! DetailViewController
+            detailViewController.tweet = tweet
+        } else if(segue.identifier == "profileSegue") {
+    
+                print("profileSegue")
+            
+           
+            
+            
+            
+        }
+            
+            
+            
+        }
+    
+    //Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-    }
-    */
+    
+
 
 }

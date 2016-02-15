@@ -119,4 +119,30 @@ class TwitterClient: BDBOAuth1SessionManager {
                 print("failed to unretweet")
         }
     }
+    
+    
+    
+    func composeTweet(message: String){
+        TwitterClient.sharedInstance.POST("1.1/statuses/update.json?status=\(message)", parameters:nil, success: { (operation: NSURLSessionDataTask, response: AnyObject?) -> Void in
+            print("reply successfully")
+            
+            }) { (operation: NSURLSessionDataTask?, error: NSError) -> Void in
+                print("reply unsuccessfully")
+                
+        }
+    }
+    
+    func userDetails(completion: (user:User, error:NSError?) -> ()) {
+        TwitterClient.sharedInstance.GET("1.1/account/verify_credentials.json", parameters: nil, progress:nil, success:{ (operation: NSURLSessionDataTask, response: AnyObject?) -> Void in
+            
+            var user = User(dictionary: response as! NSDictionary)
+            User.currentUser = user
+            print("user: \(user.name)")
+            completion(user:user, error: nil)
+            }, failure: { (operation: NSURLSessionDataTask?, error: NSError!) -> Void in
+                self.loginCompletion?(user:nil, error:error)
+        })
+    }
+
+
 }

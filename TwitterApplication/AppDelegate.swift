@@ -34,14 +34,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             var vc = storyboard.instantiateViewControllerWithIdentifier("myNav") as UIViewController!
             window?.rootViewController = vc
         }
+        
         return true
     }
-
+    
     func userDidLogout() {
-        var vc = storyboard.instantiateInitialViewController()! as UIViewController
+        var vc = storyboard.instantiateInitialViewController() as UIViewController!
         window?.rootViewController = vc
-
-        
     }
     
     func applicationWillResignActive(application: UIApplication) {
@@ -71,6 +70,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
-
 }
+
 
