@@ -51,12 +51,32 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         
         cell.tweet = tweets![indexPath.row]
         
+        let tapGesture = UITapGestureRecognizer(target: self, action: "onTapImage:")
+        cell.profilepictureImage.addGestureRecognizer(tapGesture)
+       
         return cell
     }
 
+    
     @IBAction func onLogout(sender: AnyObject) {
         User.currentUser?.logout()
         
+    }
+    
+    func onTapImage(sender: UITapGestureRecognizer) {
+        if let image = sender.view as? UIImageView {
+            if let cell = image.superview?.superview as? TweetCell {
+                if let indexPath = tableView.indexPathForCell(cell)
+                
+                
+            {
+                    print("indexpath: \(indexPath.row)")
+                }
+            }
+            print("tap image")
+        }
+        
+performSegueWithIdentifier("profileSegue", sender: self)
     }
     
     // MARK: - Navigation
@@ -72,23 +92,16 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
             let tweet = tweets![indexPath!.row]
             let detailViewController = segue.destinationViewController as! DetailViewController
             detailViewController.tweet = tweet
-        } else if(segue.identifier == "profileSegue") {
-    
-                print("profileSegue")
-            
-           
-            
-            
-            
         }
+                    // From this tweet, you can get the user and the profile image.
+    }
+}
             
-            
-            
-        }
+
     
     //Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     
 
 
-}
+

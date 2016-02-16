@@ -10,14 +10,21 @@ import UIKit
 
 class profileViewController: UIViewController {
 
- 
+    var tweet: Tweet?
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var atnameLabel: UILabel!
-    
-    
-    override func viewDidLoad() {
+        override func viewDidLoad() {
         super.viewDidLoad()
-     
+    
+        nameLabel.text = tweet!.user!.name
+        atnameLabel.text = "@"+(tweet!.user?.screenname)!
+            
+            
+         
+    
+
+        
+        
 
     }
     override func didReceiveMemoryWarning() {

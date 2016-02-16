@@ -43,7 +43,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6j6-dM-iVP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="167" y="191"/>
+            <point key="canvasLocation" x="120" y="214"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -250,8 +250,9 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tUh-a0-fi6">
+                                                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tUh-a0-fi6">
                                                     <rect key="frame" x="8" y="20" width="59" height="59"/>
+                                                    <gestureRecognizers/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="59" id="19E-XF-NGS"/>
                                                         <constraint firstAttribute="height" constant="59" id="QXT-nt-464"/>
@@ -283,12 +284,6 @@
                                                     <state key="normal" title="Like" image="iconmonstr-favorite-2-240"/>
                                                     <connections>
                                                         <action selector="onLike:" destination="sgE-4M-raj" eventType="touchDown" id="2cO-dZ-dhp"/>
-                                                    </connections>
-                                                </button>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gXL-4f-1fq">
-                                                    <rect key="frame" x="22" y="35" width="30" height="30"/>
-                                                    <connections>
-                                                        <segue destination="0n7-xK-YQP" kind="push" identifier="profileSegue" id="NRJ-jm-ICY"/>
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f4w-qG-kHf">
@@ -379,6 +374,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="t8E-Gg-IEm" id="xu2-DN-0HG"/>
+                        <segue destination="0n7-xK-YQP" kind="push" identifier="profileSegue" id="WvU-PJ-0c8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AuR-jS-6vX" userLabel="First Responder" sceneMemberID="firstResponder"/>
